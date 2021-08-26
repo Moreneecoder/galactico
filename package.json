@@ -1,0 +1,13 @@
+{
+  "name": "galactico",
+  "version": "1.0.0",
+  "description": "A Javascript Shooter Game. Powered by Phaser3",
+  "main": "index.js",
+  "repository": "https://github.com/Moreneecoder/galactico.git",
+  "author": "Bello Morenikeji Fuad",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "webpack": "^5.51.1"
+  }
+}
