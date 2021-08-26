@@ -11,5 +11,8 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^8.2.2",
     "webpack": "^5.51.1"
+  },
+  "dependencies": {
+    "phaser": "^3.55.2"
   }
 }
