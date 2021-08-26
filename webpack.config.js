@@ -24,6 +24,16 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+          include: path.resolve(__dirname, 'src/'),
+            use: {
+              loader: 'babel-loader',
+              options: {
+                presets: ['env']
+          }
+        }
+      },
+      {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
