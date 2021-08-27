@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const webpack = require('webpack');
+
 module.exports = {
   mode: 'development',
   entry: {
@@ -15,6 +17,10 @@ module.exports = {
       template: './src/index.html',
       title: 'Galactico',
     }),
+    new webpack.DefinePlugin({
+        'typeof CANVAS_RENDERER': JSON.stringify(true),
+        'typeof WEBGL_RENDERER': JSON.stringify(true)
+    })
   ],
   output: {
     filename: 'index.bundle.js',
