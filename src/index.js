@@ -1,9 +1,39 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import showMessage from './messager';
+import Phaser from 'phaser';
+import logoImg from './assets/logo.png';
 
-const messageEl = document.createElement('div');
-messageEl.classList.add('text-success', 'fw-bolder')
-messageEl.textContent = 'I was put here by JavaScript!';
-document.body.appendChild(messageEl);
+class MyGame extends Phaser.Scene
+{
+    constructor ()
+    {
+        super();
+    }
 
-showMessage('This is a sample ass shii')
+    preload ()
+    {
+        this.load.image('logo', logoImg);
+    }
+      
+    create ()
+    {
+        const logo = this.add.image(400, 150, 'logo');
+      
+        this.tweens.add({
+            targets: logo,
+            y: 450,
+            duration: 2000,
+            ease: "Power2",
+            yoyo: true,
+            loop: -1
+        });
+    }
+}
+
+const config = {
+    type: Phaser.AUTO,
+    parent: 'phaser-example',
+    width: 800,
+    height: 600,
+    scene: MyGame
+};
+
+const game = new Phaser.Game(config);
