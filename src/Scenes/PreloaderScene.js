@@ -1,11 +1,11 @@
 import 'phaser';
 
-import blueButton1 from '../assets/ui/blue_button02.png'
-import blueButton2 from '../assets/ui/blue_button03.png'
-import phaserLogo from '../assets/logo.png'
-import box from '../assets/ui/grey_box.png'
-import checkedBox from '../assets/ui/blue_boxCheckmark.png'
-import bgMusic from '../assets/TownTheme.mp3'
+import blueButton1 from '../assets/ui/blue_button02.png';
+import blueButton2 from '../assets/ui/blue_button03.png';
+import phaserLogo from '../assets/logo.png';
+import box from '../assets/ui/grey_box.png';
+import checkedBox from '../assets/ui/blue_boxCheckmark.png';
+import bgMusic from '../assets/TownTheme.mp3';
 
 class PreloaderScene extends Phaser.Scene {
   constructor() {
@@ -100,16 +100,14 @@ class PreloaderScene extends Phaser.Scene {
   }
 
   ready() {
-    this.scene.start('Title');
+    this.scene.start('Credits');
 
-    // this.readyCount++;
+    this.readyCount++;
 
-    // if (this.readyCount === 2) {
-    //   this.scene.start('Title');
-    // }
-    // else{
-    //     console.log('Cant see title');
-    // }
+    if (this.readyCount === 2) {
+      this.scene.start('Title');
+    }
+    
   }
 }
 
