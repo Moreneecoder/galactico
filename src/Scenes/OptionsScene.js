@@ -19,15 +19,15 @@ class OptionsScene extends Phaser.Scene {
     this.musicButton.setInteractive();
     this.soundButton.setInteractive();
 
-    this.musicButton.on('pointerdown', function () {
+    this.musicButton.on('pointerdown', () => {
       this.musicOn = !this.musicOn;
       this.updateAudio();
-    }.bind(this));
+    });
 
-    this.soundButton.on('pointerdown', function () {
+    this.soundButton.on('pointerdown', () => {
       this.soundOn = !this.soundOn;
       this.updateAudio();
-    }.bind(this));
+    });
 
     this.updateAudio();
 
@@ -35,9 +35,9 @@ class OptionsScene extends Phaser.Scene {
     this.menuText = this.add.text(0, 0, 'Menu', { fontSize: '32px', fill: '#fff' });
     Phaser.Display.Align.In.Center(this.menuText, this.menuButton);
 
-    this.menuButton.on('pointerdown', function (pointer) {
+    this.menuButton.on('pointerdown', (pointer) => {
       this.scene.start('Title');
-    }.bind(this));
+    });
   }
 
   updateAudio() {
@@ -52,7 +52,6 @@ class OptionsScene extends Phaser.Scene {
       this.soundButton.setTexture('checkedBox');
     }
   }
-
 }
 
 export default OptionsScene;
