@@ -1,4 +1,5 @@
 import 'phaser';
+import Button from '../Objects/Button';
 
 class OptionsScene extends Phaser.Scene {
   constructor() {
@@ -30,13 +31,8 @@ class OptionsScene extends Phaser.Scene {
 
     this.updateAudio();
 
-    this.menuButton = this.add.sprite(400, 500, 'blueButton1').setInteractive();
-    this.menuText = this.add.text(0, 0, 'Menu', { fontSize: '32px', fill: '#fff' });
-    Phaser.Display.Align.In.Center(this.menuText, this.menuButton);
+    this.menuButton = new Button(this, 400, 500, 'blueButton1', 'blueButton2', 'Menu', 'Title');
 
-    this.menuButton.on('pointerdown', (pointer) => {
-      this.scene.start('Title');
-    });
   }
 
   updateAudio() {
@@ -51,7 +47,7 @@ class OptionsScene extends Phaser.Scene {
         this.model.bgMusicPlaying = true;
       }
     }
-    
+
     if (this.model.soundOn === false) {
       this.soundButton.setTexture('box');
     } else {
