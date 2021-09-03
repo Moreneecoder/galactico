@@ -100,7 +100,8 @@ class PreloaderScene extends Phaser.Scene {
   }
 
   ready() {
-    this.scene.start('Credits');
+    // this.scene.start('Credits');
+    this.scene.start('Options');
 
     this.readyCount++;
 
