@@ -14,7 +14,7 @@ class GameScene extends Phaser.Scene {
 
   create() {
 
-    this.enableSpriteAnimation('player', 'player', 20, -1)
+    this.enableSpriteAnimation('playerObj', 'player', 20, -1)
 
     this.player = new Player(
       this,
@@ -22,6 +22,31 @@ class GameScene extends Phaser.Scene {
       this.game.config.height * 0.7,
       "player"
     );
+
+    this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+    this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+    this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+    this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+    this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
+  }
+
+  update() {
+    this.player.update();
+
+    if (this.keyW.isDown) {
+      this.player.moveUp();
+    }
+    else if (this.keyS.isDown) {
+      this.player.moveDown();
+    }
+    
+    if (this.keyA.isDown) {
+      this.player.moveLeft();
+    }
+    else if (this.keyD.isDown) {
+      this.player.moveRight();
+    }
 
   }
 
@@ -34,7 +59,7 @@ class GameScene extends Phaser.Scene {
 
   enableSpriteAnimation(key, obj, frame, loopValue) {
     this.anims.create({
-      key,
+      key: key,
       frames: this.anims.generateFrameNumbers(obj),
       frameRate: frame,
       repeat: loopValue
