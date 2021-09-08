@@ -1,6 +1,7 @@
 import 'phaser';
 import PlayerImg from '../assets/hero.png'
 import EnemyImg from '../assets/enemy.png'
+import EnemyLaserImg from '../assets/enemyLaser.png'
 import { Enemy, Player } from '../Objects/Entities';
 
 class GameScene extends Phaser.Scene {
@@ -12,12 +13,14 @@ class GameScene extends Phaser.Scene {
     this.loadSprite("player", PlayerImg, 100, 50)
     this.loadSprite('enemy', EnemyImg, 16, 16)
     this.load.image('enemy', EnemyImg)
+    this.load.image('enemyLaser', EnemyLaserImg)
   }
 
   create() {
 
     this.enableSpriteAnimation('playerObj', 'player', 20, -1)
     this.enableSpriteAnimation('enemyObj', 'enemy', 20, -1)
+    // this.enableSpriteAnimation('enemyLaserObj', 'enemyLaser', 20, -1)
 
     this.player = new Player(
       this,
