@@ -36,19 +36,7 @@ class GameScene extends Phaser.Scene {
     this.enemyLasers = this.add.group();
     this.playerLasers = this.add.group();
 
-    this.time.addEvent({
-      delay: 1000,
-      callback: function() {
-        let enemy = new Enemy(
-          this,
-          Phaser.Math.Between(0, this.game.config.width),
-          0
-        );
-        this.enemies.add(enemy);
-      },
-      callbackScope: this,
-      loop: true
-    });
+    this.spawnEnemiesAtIntervals(1000, this.spawnEnemy)    
 
   }
 
@@ -87,6 +75,25 @@ class GameScene extends Phaser.Scene {
     else if (this.keyRight.isDown) {
       this.player.moveRight();
     }
+  }
+
+  spawnEnemiesAtIntervals(interval, callback) {
+    this.time.addEvent({
+      delay: interval,
+      callback,
+      callbackScope: this,
+      loop: true
+    });
+  }
+
+  spawnEnemy() {
+    let enemy = new Enemy(
+      this,
+      Phaser.Math.Between(0, this.game.config.width),
+      0
+    );
+
+    this.enemies.add(enemy);
   }
 
 }
