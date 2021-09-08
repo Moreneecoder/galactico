@@ -1,7 +1,7 @@
 import 'phaser';
-// import Logo from '../assets/logo.png';
 import PlayerImg from '../assets/hero.png'
-import { Player } from '../Objects/Entities';
+import EnemyImg from '../assets/enemy.png'
+import { Enemy, Player } from '../Objects/Entities';
 
 class GameScene extends Phaser.Scene {
   constructor() {
@@ -9,12 +9,15 @@ class GameScene extends Phaser.Scene {
   }
 
   preload() {
-    this.loadSprite("player", PlayerImg, 300, 200)
+    this.loadSprite("player", PlayerImg, 100, 50)
+    this.loadSprite('enemy', EnemyImg, 16, 16)
+    this.load.image('enemy', EnemyImg)
   }
 
   create() {
 
     this.enableSpriteAnimation('playerObj', 'player', 20, -1)
+    this.enableSpriteAnimation('enemyObj', 'enemy', 20, -1)
 
     this.player = new Player(
       this,
@@ -23,11 +26,29 @@ class GameScene extends Phaser.Scene {
       "player"
     );
 
-    this.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-    this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
-    this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-    this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+    this.keyUp = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+    this.keyDown = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
+    this.keyLeft = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
+    this.keyRight = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
     this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
+    this.enemies = this.add.group();
+    this.enemyLasers = this.add.group();
+    this.playerLasers = this.add.group();
+
+    this.time.addEvent({
+      delay: 1000,
+      callback: function() {
+        let enemy = new Enemy(
+          this,
+          Phaser.Math.Between(0, this.game.config.width),
+          0
+        );
+        this.enemies.add(enemy);
+      },
+      callbackScope: this,
+      loop: true
+    });
 
   }
 
@@ -53,17 +74,17 @@ class GameScene extends Phaser.Scene {
   }
 
   playerMovement() {
-    if (this.keyW.isDown) {
+    if (this.keyUp.isDown) {
       this.player.moveUp();
     }
-    else if (this.keyS.isDown) {
+    else if (this.keyDown.isDown) {
       this.player.moveDown();
     }
     
-    if (this.keyA.isDown) {
+    if (this.keyLeft.isDown) {
       this.player.moveLeft();
     }
-    else if (this.keyD.isDown) {
+    else if (this.keyRight.isDown) {
       this.player.moveRight();
     }
   }
