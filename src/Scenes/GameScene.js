@@ -33,21 +33,7 @@ class GameScene extends Phaser.Scene {
 
   update() {
     this.player.update();
-
-    if (this.keyW.isDown) {
-      this.player.moveUp();
-    }
-    else if (this.keyS.isDown) {
-      this.player.moveDown();
-    }
-    
-    if (this.keyA.isDown) {
-      this.player.moveLeft();
-    }
-    else if (this.keyD.isDown) {
-      this.player.moveRight();
-    }
-
+    this.playerMovement();
   }
 
   loadSprite(key, obj, width, height) {
@@ -64,6 +50,22 @@ class GameScene extends Phaser.Scene {
       frameRate: frame,
       repeat: loopValue
     });
+  }
+
+  playerMovement() {
+    if (this.keyW.isDown) {
+      this.player.moveUp();
+    }
+    else if (this.keyS.isDown) {
+      this.player.moveDown();
+    }
+    
+    if (this.keyA.isDown) {
+      this.player.moveLeft();
+    }
+    else if (this.keyD.isDown) {
+      this.player.moveRight();
+    }
   }
 
 }
