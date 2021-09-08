@@ -9,21 +9,12 @@ class GameScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.spritesheet("player", PlayerImg, {
-      frameWidth: 300,
-      frameHeight: 200
-    });
-
+    this.loadSprite("player", PlayerImg, 300, 200)
   }
 
   create() {
 
-    this.anims.create({
-      key: "player",
-      frames: this.anims.generateFrameNumbers("player"),
-      frameRate: 20,
-      repeat: -1
-    });
+    this.enableSpriteAnimation('player', 'player', 20, -1)
 
     this.player = new Player(
       this,
@@ -32,6 +23,22 @@ class GameScene extends Phaser.Scene {
       "player"
     );
 
+  }
+
+  loadSprite(key, obj, width, height) {
+    this.load.spritesheet(key, obj, {
+      frameWidth: width,
+      frameHeight: height
+    });
+  }
+
+  enableSpriteAnimation(key, obj, frame, loopValue) {
+    this.anims.create({
+      key,
+      frames: this.anims.generateFrameNumbers(obj),
+      frameRate: frame,
+      repeat: loopValue
+    });
   }
 
 }
