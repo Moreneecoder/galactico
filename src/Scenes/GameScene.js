@@ -2,6 +2,7 @@ import 'phaser';
 import PlayerImg from '../assets/hero.png'
 import EnemyImg from '../assets/enemy.png'
 import EnemyLaserImg from '../assets/enemyLaser.png'
+import PlayerLaserImg from '../assets/playerLaser.png'
 import { Enemy, Player } from '../Objects/Entities';
 
 class GameScene extends Phaser.Scene {
@@ -12,8 +13,9 @@ class GameScene extends Phaser.Scene {
   preload() {
     this.loadSprite("player", PlayerImg, 100, 50)
     this.loadSprite('enemy', EnemyImg, 16, 16)
-    this.load.image('enemy', EnemyImg)
-    this.load.image('enemyLaser', EnemyLaserImg)
+    // this.load.image('enemy', EnemyImg)
+    this.load.image('playerLaser', PlayerLaserImg)
+    this.load.image('enemyLaser', EnemyLaserImg)    
   }
 
   create() {
@@ -46,6 +48,14 @@ class GameScene extends Phaser.Scene {
   update() {
     this.player.update();
     this.playerMovement();
+
+    if (this.keySpace.isDown) {
+      this.player.setData("isShooting", true);
+    }
+    else {
+      this.player.setData("timerShootTick", this.player.getData("timerShootDelay") - 1);
+      this.player.setData("isShooting", false);
+    }
   }
 
   loadSprite(key, obj, width, height) {

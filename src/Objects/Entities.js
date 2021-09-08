@@ -18,6 +18,10 @@ class Player extends Entity {
         this.setData("speed", 200);        
         this.play("player");
 
+        this.setData("isShooting", false);
+        this.setData("timerShootDelay", 10);
+        this.setData("timerShootTick", this.getData("timerShootDelay") - 1);
+
     }
 
     moveUp() {
@@ -41,6 +45,23 @@ class Player extends Entity {
 
       this.x = Phaser.Math.Clamp(this.x, 0, this.scene.game.config.width);
       this.y = Phaser.Math.Clamp(this.y, 0, this.scene.game.config.height);
+
+      this.enablePlayerShooting()
+    }
+
+    enablePlayerShooting() {
+        if (this.getData("isShooting")) {
+            if (this.getData("timerShootTick") < this.getData("timerShootDelay")) {
+              this.setData("timerShootTick", this.getData("timerShootTick") + 1); // every game update, increase timerShootTick by one until we reach the value of timerShootDelay
+            }
+            else { // when the "manual timer" is triggered:
+              let laser = new PlayerLaser(this.scene, this.x, this.y - 50);
+              this.scene.playerLasers.add(laser);
+            
+            //   this.scene.sfx.laser.play(); // play the laser sound effect
+              this.setData("timerShootTick", 0);
+            }
+        }
     }
 }
 
@@ -78,6 +99,13 @@ class Enemy extends Entity {
               this.shootTimer.remove(false);
             }
         }
+    }
+}
+
+class PlayerLaser extends Entity {
+    constructor(scene, x, y) {
+        super(scene, x, y, "playerLaser");
+        this.body.velocity.y = -200;
     }
 }
 
