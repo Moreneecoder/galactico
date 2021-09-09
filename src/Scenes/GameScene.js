@@ -51,7 +51,13 @@ class GameScene extends Phaser.Scene {
 
     this.shootLasers()
 
+    // FUSTRUM CULLING LOGIC BEGINS
 
+    this.cullObjectOffScreen(this.enemies)
+    this.cullObjectOffScreen(this.enemyLasers)
+    this.cullObjectOffScreen(this.playerLasers)
+
+    // FUSTRUM CULLING END
   }
 
   loadSprite(key, obj, width, height) {
@@ -112,6 +118,30 @@ class GameScene extends Phaser.Scene {
     else {
       this.player.setData("timerShootTick", this.player.getData("timerShootDelay") - 1);
       this.player.setData("isShooting", false);
+    }
+  }
+
+  cullObjectOffScreen(objectList) {
+    for (let i = 0; i < objectList.getChildren().length; i++) {
+      let object = objectList.getChildren()[i];
+
+      object.update();
+
+      if (object.x < -object.displayWidth ||
+        object.x > this.game.config.width + object.displayWidth ||
+        object.y < -object.displayHeight * 4 ||
+        object.y > this.game.config.height + object.displayHeight) {
+    
+        if (object) {
+          if (object.onDestroy !== undefined) {
+            object.onDestroy();
+          }
+    
+          object.destroy();          
+        }
+    
+      }
+
     }
   }
 
