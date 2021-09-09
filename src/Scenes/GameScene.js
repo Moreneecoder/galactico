@@ -3,6 +3,7 @@ import PlayerImg from '../assets/hero.png'
 import EnemyImg from '../assets/enemy.png'
 import EnemyLaserImg from '../assets/enemyLaser.png'
 import PlayerLaserImg from '../assets/playerLaser.png'
+import ExplosionImg from '../assets/explosion.png'
 import { Enemy, Player } from '../Objects/Entities';
 
 class GameScene extends Phaser.Scene {
@@ -13,6 +14,7 @@ class GameScene extends Phaser.Scene {
   preload() {
     this.loadSprite("player", PlayerImg, 100, 50)
     this.loadSprite('enemy', EnemyImg, 16, 16)
+    this.loadSprite('explosion', ExplosionImg, 100, 50)
     // this.load.image('enemy', EnemyImg)
     this.load.image('playerLaser', PlayerLaserImg)
     this.load.image('enemyLaser', EnemyLaserImg)    
@@ -22,7 +24,7 @@ class GameScene extends Phaser.Scene {
 
     this.enableSpriteAnimation('playerObj', 'player', 20, -1)
     this.enableSpriteAnimation('enemyObj', 'enemy', 20, -1)
-    // this.enableSpriteAnimation('enemyLaserObj', 'enemyLaser', 20, -1)
+    this.enableSpriteAnimation('explosionObj', 'explosion', 20, 0)
 
     this.player = new Player(
       this,
@@ -41,7 +43,9 @@ class GameScene extends Phaser.Scene {
     this.enemyLasers = this.add.group();
     this.playerLasers = this.add.group();
 
-    this.spawnEnemiesAtIntervals(1000, this.spawnEnemy)    
+    this.spawnEnemiesAtIntervals(1000, this.spawnEnemy)
+
+    this.physics.add.collider(this.playerLasers, this.enemies, this.collisionEffect);
 
   }
 
@@ -120,6 +124,17 @@ class GameScene extends Phaser.Scene {
       this.player.setData("isShooting", false);
     }
   }
+
+    collisionEffect(playerLaser, enemy) {
+      if (enemy) {
+        if (enemy.onDestroy !== undefined) {
+          enemy.onDestroy();
+        }
+      
+        enemy.explode(true);
+        playerLaser.destroy();
+      }
+    }
 
   cullObjectOffScreen(objectList) {
     for (let i = 0; i < objectList.getChildren().length; i++) {
