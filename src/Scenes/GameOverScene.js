@@ -1,4 +1,5 @@
 import 'phaser';
+import Button from '../Objects/Button';
 
 import logo from '../assets/zenva_logo.png';
 
@@ -8,7 +9,7 @@ class GameOverScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('logo', logo);
+    this.load.image('logo', logo);    
   }
 
   create() {
@@ -21,6 +22,8 @@ class GameOverScene extends Phaser.Scene {
     });
 
     this.title.setOrigin(0.5);
+
+    this.menuButton = new Button(this, 400, 300, 'archaicBtn', 'archaicBtn', 'Menu', 'Title');
   }
 }
 

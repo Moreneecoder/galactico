@@ -2,6 +2,7 @@ import 'phaser';
 
 import blueButton1 from '../assets/ui/blue_button02.png';
 import blueButton2 from '../assets/ui/blue_button03.png';
+import archaicBtn from '../assets/ui/button.png';
 import phaserLogo from '../assets/logo.png';
 import box from '../assets/ui/grey_box.png';
 import checkedBox from '../assets/ui/blue_boxCheckmark.png';
@@ -85,6 +86,7 @@ class PreloaderScene extends Phaser.Scene {
     // load assets needed in our game
     this.load.image('blueButton1', blueButton1);
     this.load.image('blueButton2', blueButton2);
+    this.load.image('archaicBtn', archaicBtn);
     this.load.image('phaserLogo', phaserLogo);
 
     this.load.image('box', box);
@@ -102,7 +104,8 @@ class PreloaderScene extends Phaser.Scene {
   ready() {
     // this.scene.start('Credits');
     // this.scene.start('Options');
-    this.scene.start('Title');
+    // this.scene.start('Title');
+    this.scene.start('GameOver');
 
     this.readyCount++;
 
