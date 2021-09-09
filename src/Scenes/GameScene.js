@@ -47,6 +47,9 @@ class GameScene extends Phaser.Scene {
 
     this.physics.add.collider(this.playerLasers, this.enemies, this.collisionEffect);
 
+    this.physics.add.overlap(this.player, this.enemies, this.overlapEffect);
+    this.physics.add.overlap(this.player, this.enemyLasers, this.overlapEffect);
+
   }
 
   update() {
@@ -133,6 +136,14 @@ class GameScene extends Phaser.Scene {
       
         enemy.explode(true);
         playerLaser.destroy();
+      }
+    }
+
+    overlapEffect(entity1, entity2) {
+      if (!entity1.getData("isDead") &&
+          !entity2.getData("isDead")) {
+        entity1.explode(false);
+        entity2.explode(true);
       }
     }
 
