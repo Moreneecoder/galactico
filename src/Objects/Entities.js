@@ -96,6 +96,11 @@ class Player extends Entity {
             }
         }
     }
+
+    stopShooting() {
+     this.setData("timerShootTick", this.getData("timerShootDelay") - 1);
+     this.setData("isShooting", false);
+    }
 }
 
 class Enemy extends Entity {

@@ -53,8 +53,13 @@ class GameScene extends Phaser.Scene {
   }
 
   update() {
-    this.player.update();
-    this.playerMovement();
+    if (!this.player.getData("isDead")) {
+      this.player.update();
+      this.playerMovement();
+    }
+    else{
+      this.player.stopShooting();
+    }
 
     this.shootLasers()
 
