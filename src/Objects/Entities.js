@@ -82,6 +82,17 @@ class Player extends Entity {
       this.enablePlayerShooting()
     }
 
+    onDestroy() {
+        this.scene.time.addEvent({ // go to game over scene
+            delay: 1000,
+            callback: () => {
+              this.scene.scene.start("GameOver");
+            },
+            callbackScope: this,
+            loop: false
+          });
+    }
+
     enablePlayerShooting() {
         if (this.getData("isShooting")) {
             if (this.getData("timerShootTick") < this.getData("timerShootDelay")) {

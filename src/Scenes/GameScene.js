@@ -149,6 +149,9 @@ class GameScene extends Phaser.Scene {
           !entity2.getData("isDead")) {
         entity1.explode(false);
         entity2.explode(true);
+        
+        entity1.onDestroy();
+        // this.scene.start('GameOver')
       }
     }
 
