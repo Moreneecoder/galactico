@@ -133,6 +133,8 @@ class GameScene extends Phaser.Scene {
       0,
     );
 
+    enemy.flipY = true;
+
     this.enemies.add(enemy);
   }
 
