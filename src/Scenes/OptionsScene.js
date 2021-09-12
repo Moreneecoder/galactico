@@ -32,7 +32,6 @@ class OptionsScene extends Phaser.Scene {
     this.updateAudio();
 
     this.menuButton = new Button(this, 400, 500, 'archaicBtn', 'archaicBtn', 'Menu', 'Title');
-
   }
 
   updateAudio() {
@@ -53,7 +52,6 @@ class OptionsScene extends Phaser.Scene {
     } else {
       this.soundButton.setTexture('checkedBox');
     }
-    
   }
 }
 

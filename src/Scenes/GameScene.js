@@ -1,12 +1,12 @@
 import 'phaser';
-import PlayerImg from '../assets/hero.png'
-import EnemyImg from '../assets/enemy.png'
-import EnemyLaserImg from '../assets/enemyLaser.png'
-import PlayerLaserImg from '../assets/playerLaser.png'
-import ExplosionImg from '../assets/explosion.png'
-import playerLaserAudio from '../assets/playerLaser.wav'
-import explodeAudio1 from '../assets/explode0.wav'
-import explodeAudio2 from '../assets/explode1.wav'
+import PlayerImg from '../assets/hero.png';
+import EnemyImg from '../assets/enemy.png';
+import EnemyLaserImg from '../assets/enemyLaser.png';
+import PlayerLaserImg from '../assets/playerLaser.png';
+import ExplosionImg from '../assets/explosion.png';
+import playerLaserAudio from '../assets/playerLaser.wav';
+import explodeAudio1 from '../assets/explode0.wav';
+import explodeAudio2 from '../assets/explode1.wav';
 import { Enemy, Player } from '../Objects/Entities';
 
 class GameScene extends Phaser.Scene {
@@ -15,37 +15,36 @@ class GameScene extends Phaser.Scene {
   }
 
   preload() {
-    this.loadSprite("player", PlayerImg, 100, 50)
-    this.loadSprite('enemy', EnemyImg, 16, 16)
-    this.loadSprite('explosion', ExplosionImg, 64, 64)
-    
-    this.load.image('playerLaser', PlayerLaserImg)
-    this.load.image('enemyLaser', EnemyLaserImg)
+    this.loadSprite('player', PlayerImg, 100, 50);
+    this.loadSprite('enemy', EnemyImg, 16, 16);
+    this.loadSprite('explosion', ExplosionImg, 64, 64);
 
-    this.load.audio("explodeSound1", explodeAudio1);
-    this.load.audio("explodeSound2", explodeAudio2);
-    this.load.audio("playerLaser", playerLaserAudio);
+    this.load.image('playerLaser', PlayerLaserImg);
+    this.load.image('enemyLaser', EnemyLaserImg);
+
+    this.load.audio('explodeSound1', explodeAudio1);
+    this.load.audio('explodeSound2', explodeAudio2);
+    this.load.audio('playerLaser', playerLaserAudio);
   }
 
   create() {
-
-    this.enableSpriteAnimation('playerObj', 'player', 20, -1)
-    this.enableSpriteAnimation('enemyObj', 'enemy', 20, -1)
-    this.enableSpriteAnimation('explosionObj', 'explosion', 20, 0)
+    this.enableSpriteAnimation('playerObj', 'player', 20, -1);
+    this.enableSpriteAnimation('enemyObj', 'enemy', 20, -1);
+    this.enableSpriteAnimation('explosionObj', 'explosion', 20, 0);
 
     this.sfx = {
       explosions: [
-        this.sound.add("explodeSound1"),
-        this.sound.add("explodeSound2")
+        this.sound.add('explodeSound1'),
+        this.sound.add('explodeSound2'),
       ],
-      laser: this.sound.add("playerLaser")
-  };
+      laser: this.sound.add('playerLaser'),
+    };
 
     this.player = new Player(
       this,
       this.game.config.width * 0.5,
       this.game.config.height * 0.7,
-      "player"
+      'player',
     );
 
     this.keyUp = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
@@ -58,31 +57,29 @@ class GameScene extends Phaser.Scene {
     this.enemyLasers = this.add.group();
     this.playerLasers = this.add.group();
 
-    this.spawnEnemiesAtIntervals(1000, this.spawnEnemy)
+    this.spawnEnemiesAtIntervals(1000, this.spawnEnemy);
 
     this.physics.add.collider(this.playerLasers, this.enemies, this.collisionEffect);
 
     this.physics.add.overlap(this.player, this.enemies, this.overlapEffect);
     this.physics.add.overlap(this.player, this.enemyLasers, this.overlapEffect);
-
   }
 
   update() {
-    if (!this.player.getData("isDead")) {
+    if (!this.player.getData('isDead')) {
       this.player.update();
       this.playerMovement();
-    }
-    else{
+    } else {
       this.player.stopShooting();
     }
 
-    this.shootLasers()
+    this.shootLasers();
 
     // FUSTRUM CULLING LOGIC BEGINS
 
-    this.cullObjectOffScreen(this.enemies)
-    this.cullObjectOffScreen(this.enemyLasers)
-    this.cullObjectOffScreen(this.playerLasers)
+    this.cullObjectOffScreen(this.enemies);
+    this.cullObjectOffScreen(this.enemyLasers);
+    this.cullObjectOffScreen(this.playerLasers);
 
     // FUSTRUM CULLING END
   }
@@ -90,31 +87,29 @@ class GameScene extends Phaser.Scene {
   loadSprite(key, obj, width, height) {
     this.load.spritesheet(key, obj, {
       frameWidth: width,
-      frameHeight: height
+      frameHeight: height,
     });
   }
 
   enableSpriteAnimation(key, obj, frame, loopValue) {
     this.anims.create({
-      key: key,
+      key,
       frames: this.anims.generateFrameNumbers(obj),
       frameRate: frame,
-      repeat: loopValue
+      repeat: loopValue,
     });
   }
 
   playerMovement() {
     if (this.keyUp.isDown) {
       this.player.moveUp();
-    }
-    else if (this.keyDown.isDown) {
+    } else if (this.keyDown.isDown) {
       this.player.moveDown();
     }
-    
+
     if (this.keyLeft.isDown) {
       this.player.moveLeft();
-    }
-    else if (this.keyRight.isDown) {
+    } else if (this.keyRight.isDown) {
       this.player.moveRight();
     }
   }
@@ -124,15 +119,15 @@ class GameScene extends Phaser.Scene {
       delay: interval,
       callback,
       callbackScope: this,
-      loop: true
+      loop: true,
     });
   }
 
   spawnEnemy() {
-    let enemy = new Enemy(
+    const enemy = new Enemy(
       this,
       Phaser.Math.Between(0, this.game.config.width),
-      0
+      0,
     );
 
     this.enemies.add(enemy);
@@ -140,60 +135,55 @@ class GameScene extends Phaser.Scene {
 
   shootLasers() {
     if (this.keySpace.isDown) {
-      this.player.setData("isShooting", true);
-    }
-    else {
-      this.player.setData("timerShootTick", this.player.getData("timerShootDelay") - 1);
-      this.player.setData("isShooting", false);
+      this.player.setData('isShooting', true);
+    } else {
+      this.player.setData('timerShootTick', this.player.getData('timerShootDelay') - 1);
+      this.player.setData('isShooting', false);
     }
   }
 
-    collisionEffect(playerLaser, enemy) {
-      if (enemy) {
-        if (enemy.onDestroy !== undefined) {
-          enemy.onDestroy();
-        }
-      
-        enemy.explode(true);
-        playerLaser.destroy();
+  collisionEffect(playerLaser, enemy) {
+    if (enemy) {
+      if (enemy.onDestroy !== undefined) {
+        enemy.onDestroy();
       }
-    }
 
-    overlapEffect(entity1, entity2) {
-      if (!entity1.getData("isDead") &&
-          !entity2.getData("isDead")) {
-        entity1.explode(false);
-        entity2.explode(true);
-        
-        entity1.onDestroy();
-        // this.scene.start('GameOver')
-      }
+      enemy.explode(true);
+      playerLaser.destroy();
     }
+  }
+
+  overlapEffect(entity1, entity2) {
+    if (!entity1.getData('isDead')
+          && !entity2.getData('isDead')) {
+      entity1.explode(false);
+      entity2.explode(true);
+
+      entity1.onDestroy();
+      // this.scene.start('GameOver')
+    }
+  }
 
   cullObjectOffScreen(objectList) {
     for (let i = 0; i < objectList.getChildren().length; i++) {
-      let object = objectList.getChildren()[i];
+      const object = objectList.getChildren()[i];
 
       object.update();
 
-      if (object.x < -object.displayWidth ||
-        object.x > this.game.config.width + object.displayWidth ||
-        object.y < -object.displayHeight * 4 ||
-        object.y > this.game.config.height + object.displayHeight) {
-    
+      if (object.x < -object.displayWidth
+        || object.x > this.game.config.width + object.displayWidth
+        || object.y < -object.displayHeight * 4
+        || object.y > this.game.config.height + object.displayHeight) {
         if (object) {
           if (object.onDestroy !== undefined) {
             object.onDestroy();
           }
-    
-          object.destroy();          
-        }
-    
-      }
 
+          object.destroy();
+        }
+      }
     }
   }
-
 }
 
 export default GameScene;
