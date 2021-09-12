@@ -1,3 +1,5 @@
+import Phaser from 'phaser';
+
 class Entity extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, key, type) {
     super(scene, x, y, key);
@@ -11,12 +13,12 @@ class Entity extends Phaser.GameObjects.Sprite {
 
   explode(canDestroy) {
     if (!this.getData('isDead')) {
-      // Set the texture to the explosion image, then play the animation
-      this.setTexture('explosionObj'); // this refers to the same animation key we used when we added this.anims.create previously
-      this.play('explosionObj'); // play the animation
+      this.setTexture('explosionObj');
+      this.play('explosionObj');
 
-      // pick a random explosion sound within the array we defined in this.sfx in SceneMain
-      this.scene.sfx.explosions[Phaser.Math.Between(0, this.scene.sfx.explosions.length - 1)].play();
+      this.scene.sfx.explosions[
+        Phaser.Math.Between(0, this.scene.sfx.explosions.length - 1)
+      ].play();
 
       if (this.shootTimer !== undefined) {
         if (this.shootTimer) {
