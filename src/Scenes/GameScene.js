@@ -7,7 +7,8 @@ import ExplosionImg from '../assets/explosion.png';
 import playerLaserAudio from '../assets/playerLaser.wav';
 import explodeAudio1 from '../assets/explode0.wav';
 import explodeAudio2 from '../assets/explode1.wav';
-import { Enemy, Player } from '../Objects/Entities';
+import Player from '../Objects/Player';
+import Enemy from '../Objects/Enemy';
 
 class GameScene extends Phaser.Scene {
   constructor() {
