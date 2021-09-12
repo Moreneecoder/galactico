@@ -17,7 +17,7 @@ class GameScene extends Phaser.Scene {
 
   preload() {
     this.loadSprite('player', PlayerImg, 100, 50);
-    this.loadSprite('enemy', EnemyImg, 16, 16);
+    this.loadSprite('enemy', EnemyImg, 32, 32);
     this.loadSprite('explosion', ExplosionImg, 64, 64);
 
     this.load.image('playerLaser', PlayerLaserImg);
