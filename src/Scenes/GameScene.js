@@ -142,7 +142,7 @@ class GameScene extends Phaser.Scene {
     }
   }
 
-  collisionEffect(playerLaser, enemy) {
+  collisionEffect = (playerLaser, enemy) => {
     if (enemy) {
       if (enemy.onDestroy !== undefined) {
         enemy.onDestroy();
@@ -153,7 +153,7 @@ class GameScene extends Phaser.Scene {
     }
   }
 
-  overlapEffect(entity1, entity2) {
+  overlapEffect = (entity1, entity2) => {
     if (!entity1.getData('isDead')
           && !entity2.getData('isDead')) {
       entity1.explode(false);
@@ -165,7 +165,7 @@ class GameScene extends Phaser.Scene {
   }
 
   cullObjectOffScreen(objectList) {
-    for (let i = 0; i < objectList.getChildren().length; i++) {
+    for (let i = 0; i < objectList.getChildren().length; i += 1) {
       const object = objectList.getChildren()[i];
 
       object.update();
