@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import config from '../Config/config';
 
 class Entity extends Phaser.GameObjects.Sprite {
   constructor(scene, x, y, key, type) {
@@ -9,6 +10,11 @@ class Entity extends Phaser.GameObjects.Sprite {
     this.scene.physics.world.enableBody(this, 0);
     this.setData('type', type);
     this.setData('isDead', false);
+  }
+
+  resize(value) {
+    this.displayWidth = config.width * value;
+    this.scaleY = this.scaleX;
   }
 
   explode(canDestroy) {

@@ -48,8 +48,7 @@ class GameScene extends Phaser.Scene {
       'player',
     );
     
-    this.player.displayWidth = this.game.config.width * .04
-    this.player.scaleY = this.player.scaleX
+    this.player.resize(0.04);
 
     this.keyUp = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
     this.keyDown = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);

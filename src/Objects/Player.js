@@ -6,8 +6,6 @@ class Player extends Entity {
   constructor(scene, x, y, key) {
     super(scene, x, y, key, 'Player');
 
-    // sprite.displayWidth=game.config.width*.1; 
-    // sprite.scaleY=sprite.scaleX
     this.setData('speed', 200);
     this.play('player');
 
