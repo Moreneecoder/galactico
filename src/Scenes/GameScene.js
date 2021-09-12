@@ -5,6 +5,8 @@ import EnemyLaserImg from '../assets/enemyLaser.png'
 import PlayerLaserImg from '../assets/playerLaser.png'
 import ExplosionImg from '../assets/explosion.png'
 import playerLaserAudio from '../assets/playerLaser.wav'
+import explodeAudio1 from '../assets/explode0.wav'
+import explodeAudio2 from '../assets/explode1.wav'
 import { Enemy, Player } from '../Objects/Entities';
 
 class GameScene extends Phaser.Scene {
@@ -20,6 +22,8 @@ class GameScene extends Phaser.Scene {
     this.load.image('playerLaser', PlayerLaserImg)
     this.load.image('enemyLaser', EnemyLaserImg)
 
+    this.load.audio("explodeSound1", explodeAudio1);
+    this.load.audio("explodeSound2", explodeAudio2);
     this.load.audio("playerLaser", playerLaserAudio);
   }
 
@@ -30,10 +34,10 @@ class GameScene extends Phaser.Scene {
     this.enableSpriteAnimation('explosionObj', 'explosion', 20, 0)
 
     this.sfx = {
-      // explosions: [
-      //   this.sound.add("sndExplode0"),
-      //   this.sound.add("sndExplode1")
-      // ],
+      explosions: [
+        this.sound.add("explodeSound1"),
+        this.sound.add("explodeSound2")
+      ],
       laser: this.sound.add("playerLaser")
   };
 
