@@ -1,32 +1,32 @@
 class Model {
   constructor() {
-    this._soundOn = true;
-    this._musicOn = true;
-    this._bgMusicPlaying = false;
+    this.SoundOn = true;
+    this.MusicOn = true;
+    this.BgMusicPlaying = false;
   }
 
   set musicOn(value) {
-    this._musicOn = value;
+    this.MusicOn = value;
   }
 
   get musicOn() {
-    return this._musicOn;
+    return this.MusicOn;
   }
 
   set soundOn(value) {
-    this._soundOn = value;
+    this.SoundOn = value;
   }
 
   get soundOn() {
-    return this._soundOn;
+    return this.SoundOn;
   }
 
   set bgMusicPlaying(value) {
-    this._bgMusicPlaying = value;
+    this.BgMusicPlaying = value;
   }
 
   get bgMusicPlaying() {
-    return this._bgMusicPlaying;
+    return this.BgMusicPlaying;
   }
 }
 
