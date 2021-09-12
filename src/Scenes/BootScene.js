@@ -1,4 +1,4 @@
-import 'phaser';
+import Phaser from 'phaser';
 
 import logo from '../assets/zenva_logo.png';
 
