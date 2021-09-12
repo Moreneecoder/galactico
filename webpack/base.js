@@ -20,9 +20,13 @@ module.exports = {
         use: 'raw-loader',
       },
       {
-        test: /\.(gif|png|jpe?g|svg|xml|mp3|wav)$/i,
+        test: /\.(gif|png|jpe?g|svg|xml|mp3|wav|html)$/i,
         use: 'file-loader',
       },
+      {
+        test: /\.html$/i,
+        loader: "html-loader",
+      }
     ],
   },
   plugins: [

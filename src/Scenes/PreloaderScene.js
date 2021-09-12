@@ -8,8 +8,6 @@ import box from '../assets/ui/grey_box.png';
 import checkedBox from '../assets/ui/blue_boxCheckmark.png';
 import bgMusic from '../assets/TownTheme.mp3';
 
-import Form from '../Partials/form.html'
-
 class PreloaderScene extends Phaser.Scene {
   constructor() {
     super('Preloader');
@@ -18,8 +16,6 @@ class PreloaderScene extends Phaser.Scene {
   preload() {
     // add logo image
     this.add.image(400, 200, 'logo');
-
-    this.load.html("form", Form);
 
     // display progress bar
     const progressBar = this.add.graphics();
