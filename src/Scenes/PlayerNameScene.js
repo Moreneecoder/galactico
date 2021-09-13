@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import Button from '../Objects/Button';
+// import Button from '../Objects/Button';
 import archaicBtn from '../assets/ui/button.png';
 
 class PlayerNameScene extends Phaser.Scene {
@@ -15,11 +15,7 @@ class PlayerNameScene extends Phaser.Scene {
       this.text = this.add.text(this.game.config.width * 0.28, 100, 'ENTER YOUR NAME', { fontSize: 40 });
 
       const input = document.createElement('input')
-      input.style.padding = '1em'
-      input.style.width = `${(this.game.config.width / 2).toString()}px`
-      input.style.fontSize = '1.5em'
-      input.style.textAlign = 'center'
-      input.style.fontWeight = 'bold'
+      this.style(input);
       
       this.nameInput = this.add.dom(this.game.config.width / 2, this.game.config.height / 2.5, input)
     
@@ -52,6 +48,14 @@ class PlayerNameScene extends Phaser.Scene {
 
     localStore = (value) => {
         localStorage.setItem('ultraName', value)
+    }
+
+    style = element => {
+      element.style.padding = '1em'
+      element.style.width = `${(this.game.config.width / 2).toString()}px`
+      element.style.fontSize = '1.5em'
+      element.style.textAlign = 'center'
+      element.style.fontWeight = 'bold'
     }
 }
 
