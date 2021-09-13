@@ -25,13 +25,33 @@ class PlayerNameScene extends Phaser.Scene {
     
       this.returnKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
 
-      this.returnKey.on("down", event => {        
-        if(input.value != "") {
-            // this.message.setText("Hello, " + name.value);
-            console.log(input.value);
-            input.value = "";
+      this.returnKey.on("down", () => {        
+
+        let userName = this.setName(input.value, this.localStore)
+
+        if(userName){
+            this.scene.start('Game')
         }
+
       });
+    }
+
+    setName = (value, callback) => {
+        let output = false;
+
+        if(value != "") {
+            // this.message.setText("Hello, " + name.value);            
+            callback(value)
+            value = "";
+
+            output = true;
+        }
+
+        return output;
+    }
+
+    localStore = (value) => {
+        localStorage.setItem('ultraName', value)
     }
 }
 
