@@ -17,17 +17,7 @@ class Score {
   saveToApi = (player) => {
     LeaderBoardAPI.store(player, this.count)
   }
-
-  getFromApi = () => {
-    const result = LeaderBoardAPI.store(player, this.count)
-
-    result.then( response => {
-        return response.json();
-    })
-    .then(response => {
-        console.log(response);        
-    })
-  }
+  
 }
 
 export default Score;

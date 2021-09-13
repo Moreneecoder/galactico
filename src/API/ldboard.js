@@ -18,4 +18,8 @@
     return fetch(url, setConfig(player, score));
   }
 
-export { store }
+  const getScores = () => {
+    return fetch(url)
+  }
+
+export { store, getScores }
