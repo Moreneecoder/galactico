@@ -1,6 +1,4 @@
 import Phaser from 'phaser';
-// import Button from '../Objects/Button';
-import archaicBtn from '../assets/ui/button.png';
 
 class PlayerNameScene extends Phaser.Scene {
     constructor() {
