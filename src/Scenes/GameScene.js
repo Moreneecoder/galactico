@@ -42,9 +42,8 @@ class GameScene extends Phaser.Scene {
       laser: this.sound.add('playerLaser'),
     };
     
-    this.score = new Score()
+    this.score = new Score(this)
     this.playerName = this.add.text(16, 16, `Player: ${localStorage.getItem('ultraName')}`, { fontSize: '32px', fill: '#fff' });
-    this.score.text = this.add.text(16, 48, 'Score: 0', { fontSize: '32px', fill: '#fff' });
 
     this.player = new Player(
       this,
@@ -162,8 +161,8 @@ class GameScene extends Phaser.Scene {
       enemy.explode(true);
       playerLaser.destroy();
 
-      this.score.count += 10;
-      this.score.text.setText(`Score: ${this.score.count}`)      
+      this.score.increase();
+      this.score.update()      
     }
   }
 
