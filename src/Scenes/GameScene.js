@@ -43,14 +43,17 @@ class GameScene extends Phaser.Scene {
     };
     
     this.score = new Score(this)
-    this.playerName = this.add.text(16, 16, `Player: ${localStorage.getItem('ultraName')}`, { fontSize: '32px', fill: '#fff' });
+    this.playerName = localStorage.getItem('ultraName')
 
     this.player = new Player(
       this,
       this.game.config.width * 0.5,
       this.game.config.height * 0.7,
       'player',
+      this.playerName
     );
+
+    this.player.displayName()
 
     this.player.resize(0.04);
 

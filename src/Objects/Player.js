@@ -3,8 +3,11 @@ import Entity from './Entities';
 import PlayerLaser from './PlayerLaser';
 
 class Player extends Entity {
-  constructor(scene, x, y, key) {
+  constructor(scene, x, y, key, name) {
     super(scene, x, y, key, 'Player');
+
+    this.name = name
+    this.scene = scene
 
     this.setData('speed', 200);
     this.play('player');
@@ -12,6 +15,10 @@ class Player extends Entity {
     this.setData('isShooting', false);
     this.setData('timerShootDelay', 10);
     this.setData('timerShootTick', this.getData('timerShootDelay') - 1);
+  }
+
+  displayName() {
+    this.scene.add.text(16, 16, `Player: ${this.name}`, { fontSize: '32px', fill: '#fff' });
   }
 
   moveUp() {
