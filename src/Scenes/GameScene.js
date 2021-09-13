@@ -41,19 +41,19 @@ class GameScene extends Phaser.Scene {
       ],
       laser: this.sound.add('playerLaser'),
     };
-    
-    this.score = new Score(this)
-    this.playerName = localStorage.getItem('ultraName')
+
+    this.score = new Score(this);
+    this.playerName = localStorage.getItem('ultraName');
 
     this.player = new Player(
       this,
       this.game.config.width * 0.5,
       this.game.config.height * 0.7,
       'player',
-      this.playerName
+      this.playerName,
     );
 
-    this.player.displayName()
+    this.player.displayName();
 
     this.player.resize(0.04);
 
@@ -73,7 +73,6 @@ class GameScene extends Phaser.Scene {
 
     this.physics.add.overlap(this.player, this.enemies, this.overlapEffect);
     this.physics.add.overlap(this.player, this.enemyLasers, this.overlapEffect);
-    
   }
 
   update() {
@@ -165,7 +164,7 @@ class GameScene extends Phaser.Scene {
       playerLaser.destroy();
 
       this.score.increase();
-      this.score.update()      
+      this.score.update();
     }
   }
 

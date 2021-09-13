@@ -6,8 +6,8 @@ class Player extends Entity {
   constructor(scene, x, y, key, name) {
     super(scene, x, y, key, 'Player');
 
-    this.name = name
-    this.scene = scene
+    this.name = name;
+    this.scene = scene;
 
     this.setData('speed', 200);
     this.play('player');
