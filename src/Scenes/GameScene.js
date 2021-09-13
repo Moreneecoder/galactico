@@ -174,6 +174,8 @@ class GameScene extends Phaser.Scene {
       entity1.explode(false);
       entity2.explode(true);
 
+      this.score.saveToApi(this.playerName);
+
       entity1.onDestroy();
       // this.scene.start('GameOver')
     }

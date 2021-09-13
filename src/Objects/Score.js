@@ -1,3 +1,5 @@
+import * as LeaderBoardAPI from "../API/ldboard";
+
 class Score {
   constructor(scene) {
     this.count = 0;
@@ -10,6 +12,10 @@ class Score {
 
   update() {
     this.text.setText(`Score: ${this.count}`);
+  }
+
+  saveToApi = (player) => {
+    LeaderBoardAPI.store(player, this.count)
   }
 }
 
