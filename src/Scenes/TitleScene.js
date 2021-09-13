@@ -9,7 +9,7 @@ class TitleScene extends Phaser.Scene {
 
   create() {
     // Game
-    this.gameButton = new Button(this, config.width / 2, config.height / 2 - 150, 'archaicBtn', 'archaicBtn', 'Play', 'Game');
+    this.gameButton = new Button(this, config.width / 2, config.height / 2 - 150, 'archaicBtn', 'archaicBtn', 'Play', 'PlayerName');
 
     // Options
     this.optionsButton = new Button(this, config.width / 2, config.height / 2, 'archaicBtn', 'archaicBtn', 'Options', 'Options');
