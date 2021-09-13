@@ -7,10 +7,6 @@ class PlayerNameScene extends Phaser.Scene {
         super('PlayerName');       
     }
 
-    preload() {
-        this.load.image('archaicBtn', archaicBtn);
-    }
-
     create() {
       this.text = this.add.text(this.game.config.width * 0.28, 100, 'ENTER YOUR NAME', { fontSize: 40 });
 
