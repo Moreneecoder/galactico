@@ -1,5 +1,6 @@
 import Phaser from 'phaser'
 import * as LeaderBoardAPI from "../API/ldboard";
+import Button from '../Objects/Button';
 
 class HighScoresScene extends Phaser.Scene {
     constructor() {
@@ -7,13 +8,15 @@ class HighScoresScene extends Phaser.Scene {
     }
 
     create() {
-        this.title = this.add.text(this.game.config.width * 0.4, 100, 'High Scores', { fontSize: 32 });
+        this.title = this.add.text(this.game.config.width * 0.4, 50, 'High Scores', { fontSize: 32 });
         
 
       this.getScores()
       .then(response => {
-        this.print(response.result)        
+        this.print(response.result)
       })
+
+      this.menuButton = new Button(this, 400, 550, 'archaicBtn', 'archaicBtn', 'Menu', 'Title');
     }
 
     getScores() {
@@ -25,7 +28,7 @@ class HighScoresScene extends Phaser.Scene {
     }
 
     print(data) {
-        let yPosition = 150;
+        let yPosition = 100;
         data.every((element, index) => {
           if(index > 9){
               return false;
