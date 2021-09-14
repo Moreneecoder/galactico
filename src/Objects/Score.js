@@ -1,4 +1,4 @@
-import * as LeaderBoardAPI from "../API/ldboard";
+import * as LeaderBoardAPI from '../API/ldboard';
 
 class Score {
   constructor(scene) {
@@ -15,9 +15,8 @@ class Score {
   }
 
   saveToApi = (player) => {
-    LeaderBoardAPI.store(player, this.count)
+    LeaderBoardAPI.store(player, this.count);
   }
-  
 }
 
 export default Score;
