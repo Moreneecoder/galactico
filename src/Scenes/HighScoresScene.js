@@ -12,8 +12,7 @@ class HighScoresScene extends Phaser.Scene {
 
       this.getScores()
       .then(response => {
-        this.print(response.result)
-        console.log(response.result);
+        this.print(response.result)        
       })
     }
 
@@ -34,8 +33,7 @@ class HighScoresScene extends Phaser.Scene {
 
           this.add.text(this.game.config.width * 0.3, yPosition, element.user, { fontSize: 24 });
           this.add.text(this.game.config.width * 0.65, yPosition, element.score, { fontSize: 24 });
-          yPosition += 50;
-          console.log(element.user);
+          yPosition += 50;          
 
           return true
         });
