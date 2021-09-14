@@ -1,5 +1,5 @@
 
-    const apiKey = 'jxXvuMH0BffmwbnPCwb0';
+    const apiKey = 'KdmaTO7csEf9o0JujaCi';
     const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${apiKey}/scores`;
 
     const setConfig = (user, score) => {

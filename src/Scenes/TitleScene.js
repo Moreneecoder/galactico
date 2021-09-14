@@ -18,7 +18,7 @@ class TitleScene extends Phaser.Scene {
     this.creditsButton = new Button(this, config.width / 2, config.height / 2 + 50, 'archaicBtn', 'archaicBtn', 'Credits', 'Credits');
 
     // HighScore
-    this.highScoreButton = new Button(this, config.width / 2, config.height / 2 + 150, 'archaicBtn', 'archaicBtn', 'Scores', 'Scores');
+    this.highScoreButton = new Button(this, config.width / 2, config.height / 2 + 150, 'archaicBtn', 'archaicBtn', 'Scores', 'HighScores');
 
     this.model = this.sys.game.globals.model;
 
