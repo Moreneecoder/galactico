@@ -27,8 +27,7 @@ class PlayerNameScene extends Phaser.Scene {
     setName = (value, callback) => {
       let output = false;
 
-      if (value !== '') {
-        // this.message.setText("Hello, " + name.value);
+      if (value !== '') {        
         callback(value);
         value = '';
 

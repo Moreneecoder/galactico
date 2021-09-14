@@ -47,7 +47,7 @@ class Player extends Entity {
   }
 
   onDestroy() {
-    this.scene.time.addEvent({ // go to game over scene
+    this.scene.time.addEvent({
       delay: 1000,
       callback: () => {
         this.scene.scene.start('GameOver');
@@ -60,12 +60,12 @@ class Player extends Entity {
   enablePlayerShooting() {
     if (this.getData('isShooting')) {
       if (this.getData('timerShootTick') < this.getData('timerShootDelay')) {
-        this.setData('timerShootTick', this.getData('timerShootTick') + 1); // every game update, increase timerShootTick by one until we reach the value of timerShootDelay
-      } else { // when the "manual timer" is triggered:
+        this.setData('timerShootTick', this.getData('timerShootTick') + 1);
+      } else {
         const laser = new PlayerLaser(this.scene, this.x, this.y - 30);
         this.scene.playerLasers.add(laser);
 
-        this.scene.sfx.laser.play(); // play the laser sound effect
+        this.scene.sfx.laser.play();
         this.setData('timerShootTick', 0);
       }
     }

@@ -83,15 +83,12 @@ class GameScene extends Phaser.Scene {
       this.player.stopShooting();
     }
 
-    this.shootLasers();
-
-    // FUSTRUM CULLING LOGIC BEGINS
+    this.shootLasers();    
 
     this.cullObjectOffScreen(this.enemies);
     this.cullObjectOffScreen(this.enemyLasers);
     this.cullObjectOffScreen(this.playerLasers);
-
-    // FUSTRUM CULLING END
+ 
   }
 
   loadSprite(key, obj, width, height) {
@@ -177,7 +174,7 @@ class GameScene extends Phaser.Scene {
       this.score.saveToApi(this.playerName);
 
       entity1.onDestroy();
-      // this.scene.start('GameOver')
+      
     }
   }
 
