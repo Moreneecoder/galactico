@@ -15,4 +15,9 @@ const store = (player, score) => fetch(url, setConfig(player, score));
 
 const getScores = () => fetch(url);
 
-export { store, getScores };
+export { 
+    store,
+    getScores,
+    apiKey,
+    url    
+};
