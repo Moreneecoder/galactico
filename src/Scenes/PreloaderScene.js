@@ -13,9 +13,9 @@ class PreloaderScene extends Phaser.Scene {
     super('Preloader');
   }
 
-  preload() {    
+  preload() {
     this.add.image(400, 200, 'logo');
-    
+
     const progressBar = this.add.graphics();
     const progressBox = this.add.graphics();
     progressBox.fillStyle(0x222222, 0.8);
@@ -57,18 +57,18 @@ class PreloaderScene extends Phaser.Scene {
     });
 
     assetText.setOrigin(0.5, 0.5);
-    
+
     this.load.on('progress', (value) => {
       percentText.setText(`${parseInt(value * 100, 10)}%`);
       progressBar.clear();
       progressBar.fillStyle(0xffffff, 1);
       progressBar.fillRect(250, 280, 300 * value, 30);
     });
-    
+
     this.load.on('fileprogress', (file) => {
       assetText.setText(`Loading asset: ${file.key}`);
     });
-    
+
     this.load.on('complete', () => {
       progressBar.destroy();
       progressBox.destroy();
@@ -78,7 +78,7 @@ class PreloaderScene extends Phaser.Scene {
     });
 
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
-    
+
     this.load.image('blueButton1', blueButton1);
     this.load.image('blueButton2', blueButton2);
     this.load.image('archaicBtn', archaicBtn);

@@ -27,7 +27,7 @@ class PlayerNameScene extends Phaser.Scene {
     setName = (value, callback) => {
       let output = false;
 
-      if (value !== '') {        
+      if (value !== '') {
         callback(value);
         value = '';
 

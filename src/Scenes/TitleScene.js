@@ -7,10 +7,10 @@ class TitleScene extends Phaser.Scene {
     super('Title');
   }
 
-  create() {    
-    this.gameButton = new Button(this, config.width / 2, config.height / 2 - 150, 'archaicBtn', 'archaicBtn', 'Play', 'PlayerName');    
-    this.optionsButton = new Button(this, config.width / 2, config.height / 2 - 50, 'archaicBtn', 'archaicBtn', 'Options', 'Options');    
-    this.creditsButton = new Button(this, config.width / 2, config.height / 2 + 50, 'archaicBtn', 'archaicBtn', 'Credits', 'Credits');    
+  create() {
+    this.gameButton = new Button(this, config.width / 2, config.height / 2 - 150, 'archaicBtn', 'archaicBtn', 'Play', 'PlayerName');
+    this.optionsButton = new Button(this, config.width / 2, config.height / 2 - 50, 'archaicBtn', 'archaicBtn', 'Options', 'Options');
+    this.creditsButton = new Button(this, config.width / 2, config.height / 2 + 50, 'archaicBtn', 'archaicBtn', 'Credits', 'Credits');
     this.highScoreButton = new Button(this, config.width / 2, config.height / 2 + 150, 'archaicBtn', 'archaicBtn', 'Scores', 'HighScores');
 
     this.model = this.sys.game.globals.model;
