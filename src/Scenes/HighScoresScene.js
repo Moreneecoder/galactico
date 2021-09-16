@@ -27,7 +27,7 @@ class HighScoresScene extends Phaser.Scene {
   print(data) {
     let yPosition = 100;
     data.every((element, index) => {
-      if (index > 9) {
+      if (index > 7) {
         return false;
       }
 
