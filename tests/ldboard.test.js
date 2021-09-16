@@ -3,7 +3,7 @@ import 'regenerator-runtime';
 
 jest.mock('../src/API/ldboard');
 
-describe('Store new score', () => {
+describe('Store new score in leaderboard API', () => {
   ldAPI.store = jest.fn().mockImplementation((user, score) => ({
     user, score,
   }));
