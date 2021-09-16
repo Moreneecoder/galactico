@@ -27,7 +27,7 @@ The Ultra wars game is a shooter game that requires the player to kill as many e
 
 ## Live Demo
 
-To Be Added
+[Ultra Wars](https://ultrawars.netlify.app/)
 
 ## HOW TO PLAY
 ### Navigation Steps
