@@ -19,7 +19,7 @@ describe('Store new score', () => {
   });
 });
 
-describe('Get score from leaderboard', () => {
+describe('Get scores data from leaderboard', () => {
   ldAPI.getScores = jest.fn().mockImplementation(() => {
     const data = {
       result: [
