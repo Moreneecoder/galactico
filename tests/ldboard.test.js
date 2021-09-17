@@ -18,7 +18,7 @@ describe('Store new score in leaderboard API', () => {
 
   it('expects to fails with an error', async () => {
     try {
-        await ldAPI.store('A name')
+      await ldAPI.store('A name');
     } catch (e) {
       expect(e).toMatch('error');
     }
@@ -63,53 +63,53 @@ describe('Get scores data from leaderboard', () => {
 });
 
 describe('setConfig', () => {
-    let config = ldAPI.setConfig('keji', 30);
+  const config = ldAPI.setConfig('keji', 30);
 
-    it('expects fetch configuration to be an Object', () => {        
-        expect(config).toBeInstanceOf(Object)
-    })
+  it('expects fetch configuration to be an Object', () => {
+    expect(config).toBeInstanceOf(Object);
+  });
 
-    it('expects method to be post', () => {        
-        expect(config.method).toBe('POST')
-    })
+  it('expects method to be post', () => {
+    expect(config.method).toBe('POST');
+  });
 
-    it('expects method to not be GET', () => {        
-        expect(config.method).not.toBe('GET')
-    })
+  it('expects method to not be GET', () => {
+    expect(config.method).not.toBe('GET');
+  });
 
-    it('expects mode to be CORS enabled', () => {        
-        expect(config.mode).toBe('cors')
-    })
+  it('expects mode to be CORS enabled', () => {
+    expect(config.mode).toBe('cors');
+  });
 
-    it('expects headers to be an object', () => {        
-        expect(config.headers).toBeInstanceOf(Object)
-    })
+  it('expects headers to be an object', () => {
+    expect(config.headers).toBeInstanceOf(Object);
+  });
 
-    it('expects content-type to be json', () => {        
-        expect(config.headers['Content-Type']).toBe('application/json')
-    })
+  it('expects content-type to be json', () => {
+    expect(config.headers['Content-Type']).toBe('application/json');
+  });
 
-    it('expects accept response type to be json', () => {        
-        expect(config.headers.Accept).toBe('application/json')
-    })
+  it('expects accept response type to be json', () => {
+    expect(config.headers.Accept).toBe('application/json');
+  });
 
-    it('expects fetch body to be an Object', () => {        
-        expect(JSON.parse(config.body)).toBeInstanceOf(Object)
-    })
+  it('expects fetch body to be an Object', () => {
+    expect(JSON.parse(config.body)).toBeInstanceOf(Object);
+  });
 
-    it('expects user value in body to be a string', () => {        
-        expect(typeof JSON.parse(config.body).user).toBe('string')
-    })
+  it('expects user value in body to be a string', () => {
+    expect(typeof JSON.parse(config.body).user).toBe('string');
+  });
 
-    it('expects user value in body to be keji', () => {        
-        expect(JSON.parse(config.body).user).toBe('keji')
-    })
+  it('expects user value in body to be keji', () => {
+    expect(JSON.parse(config.body).user).toBe('keji');
+  });
 
-    it('expects score value in body to be a number', () => {        
-        expect(typeof JSON.parse(config.body).score).toBe('number')
-    })
+  it('expects score value in body to be a number', () => {
+    expect(typeof JSON.parse(config.body).score).toBe('number');
+  });
 
-    it('expects score value in body to be 20', () => {        
-        expect(JSON.parse(config.body).score).toBe(30)
-    })
-})
+  it('expects score value in body to be 20', () => {
+    expect(JSON.parse(config.body).score).toBe(30);
+  });
+});
