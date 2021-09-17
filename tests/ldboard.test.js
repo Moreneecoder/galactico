@@ -15,6 +15,14 @@ describe('Store new score in leaderboard API', () => {
     const response = await ldAPI.store('A name', 20);
     expect(typeof response.score).toBe('number');
   });
+
+  it('expects to fails with an error', async () => {
+    try {
+        await ldAPI.store('A name')
+    } catch (e) {
+      expect(e).toMatch('error');
+    }
+  });
 });
 
 describe('Get scores data from leaderboard', () => {
@@ -63,6 +71,10 @@ describe('setConfig', () => {
 
     it('expects method to be post', () => {        
         expect(config.method).toBe('POST')
+    })
+
+    it('expects method to not be GET', () => {        
+        expect(config.method).not.toBe('GET')
     })
 
     it('expects mode to be CORS enabled', () => {        
