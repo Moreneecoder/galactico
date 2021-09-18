@@ -23,20 +23,20 @@ class StoryScene extends Phaser.Scene {
         you, ${localStorage.getItem('ultraName').toUpperCase()} to put a stop to this madness. 
         The survival of the kingdom LIES IN YOUR HANDS!`;
 
-    this.creditsText = this.add.text(this.game.config.width * 0.1, 0, story, { fontSize: '2em', fill: '#fff' });
+    this.storyText = this.add.text(this.game.config.width * 0.1, 0, story, { fontSize: '2em', fill: '#fff' });
 
     this.highScoreButton = new Button(this, this.game.config.height * 0.12, this.game.config.height - 50, 'archaicBtn', 'archaicBtn', 'Skip', 'Game', 0.15, '24px');
 
-    this.creditsText.setY(600);
+    this.storyText.setY(600);
 
-    this.creditsTween = this.tweens.add({
-      targets: this.creditsText,
+    this.storyTween = this.tweens.add({
+      targets: this.storyText,
       y: -300,
       ease: 'Power1',
       duration: 30000,
       delay: 1000,
       onComplete: () => {
-        this.creditsTween.destroy;
+        this.storyTween.destroy;
         this.scene.start('Game');
       },
     });
