@@ -78,7 +78,7 @@ class PreloaderScene extends Phaser.Scene {
 
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
-    this.load.image("background", background);
+    this.load.image('background', background);
     this.load.image('archaicBtn', archaicBtn);
     this.load.image('phaserLogo', phaserLogo);
 

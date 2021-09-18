@@ -14,7 +14,7 @@ class GameOverScene extends Phaser.Scene {
   }
 
   create() {
-    this.background = new Background(this, "background", 0)
+    this.background = new Background(this, 'background', 0);
 
     this.title = this.add.text(this.game.config.width * 0.5, 128, 'GAME OVER', {
       fontFamily: 'monospace',
@@ -27,7 +27,7 @@ class GameOverScene extends Phaser.Scene {
     this.title.setOrigin(0.5);
 
     this.menuButton = new Button(this, 400, 300, 'archaicBtn', 'archaicBtn', 'Play Again', 'Game', 0.35);
-    this.menuButton = new Button(this, 400, 400, 'archaicBtn', 'archaicBtn', 'Menu', 'Title');    
+    this.menuButton = new Button(this, 400, 400, 'archaicBtn', 'archaicBtn', 'Menu', 'Title');
   }
 }
 

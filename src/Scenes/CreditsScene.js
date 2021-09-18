@@ -8,8 +8,8 @@ class CreditsScene extends Phaser.Scene {
     super('Credits');
   }
 
-  create() {    
-    this.background = new Background(this, "background", 0)
+  create() {
+    this.background = new Background(this, 'background', 0);
 
     this.creditsText = this.add.text(0, 0, 'Credits', { fontSize: '32px', fill: '#fff' });
     this.madeByText = this.add.text(0, 0, 'Created By: Bello Morenikeji Fuad', { fontSize: '26px', fill: '#fff' });

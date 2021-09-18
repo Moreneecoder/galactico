@@ -7,8 +7,8 @@ class OptionsScene extends Phaser.Scene {
     super('Options');
   }
 
-  create() {    
-    this.background = new Background(this, "background", 0)
+  create() {
+    this.background = new Background(this, 'background', 0);
     this.model = this.sys.game.globals.model;
 
     this.text = this.add.text(300, 100, 'Options', { fontSize: 40 });
