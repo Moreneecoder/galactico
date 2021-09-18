@@ -19,7 +19,7 @@ class PlayerNameScene extends Phaser.Scene {
       const userName = this.setName(input.value, this.localStore);
 
       if (userName) {
-        this.scene.start('Game');
+        this.scene.start('Story');
       }
     });
   }

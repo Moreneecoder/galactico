@@ -1,14 +1,9 @@
 import Phaser from 'phaser';
 import Button from '../Objects/Button';
-import archaicBtn from '../assets/ui/button.png';
 
 class StoryScene extends Phaser.Scene {
     constructor() {
       super('Story');
-    }
-
-    preload(){
-        this.load.image('archaicBtn', archaicBtn);
     }
 
     create() {
@@ -20,12 +15,12 @@ class StoryScene extends Phaser.Scene {
         to be seen again.
 
         The ruling council have however, charged
-        you to put a stop to this madness. 
+        you, ${localStorage.getItem('ultraName').toUpperCase()} to put a stop to this madness. 
         The survival of the kingdom LIES IN YOUR HANDS!`;
 
-        this.creditsText = this.add.text(this.game.config.width * 0.05, 0, story, { fontSize: '2em', fill: '#fff' });
+        this.creditsText = this.add.text(this.game.config.width * 0.1, 0, story, { fontSize: '2em', fill: '#fff' });
 
-        this.highScoreButton = new Button(this, this.game.config.height * 0.25, this.game.config.height - 50, 'archaicBtn', 'archaicBtn', 'Skip', 'Game');
+        this.highScoreButton = new Button(this, this.game.config.height * 0.12, this.game.config.height - 50, 'archaicBtn', 'archaicBtn', 'Skip', 'Game', 0.15, '24px');
 
         this.creditsText.setY(600);
 
