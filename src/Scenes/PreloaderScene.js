@@ -5,6 +5,7 @@ import phaserLogo from '../assets/logo.png';
 import box from '../assets/ui/grey_box.png';
 import checkedBox from '../assets/ui/blue_boxCheckmark.png';
 import bgMusic from '../assets/TownTheme.mp3';
+import background from '../assets/nebula-bg.jpeg';
 
 class PreloaderScene extends Phaser.Scene {
   constructor() {
@@ -77,6 +78,7 @@ class PreloaderScene extends Phaser.Scene {
 
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
+    this.load.image("background", background);
     this.load.image('archaicBtn', archaicBtn);
     this.load.image('phaserLogo', phaserLogo);
 
