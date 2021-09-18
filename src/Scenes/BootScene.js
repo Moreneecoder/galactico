@@ -10,12 +10,18 @@ class BootScene extends Phaser.Scene {
   preload() {
     this.load.image('logo', logo);
 
-    const canvas = document.querySelector('canvas');
-    canvas.style.marginLeft = '20%';
+    this.styleCanvas();
   }
 
   create() {
     this.scene.start('Preloader');
+  }
+
+  styleCanvas() {
+    const canvas = document.querySelector('canvas');
+    canvas.style.marginLeft = '20%';
+    canvas.style.marginTop = '25px';
+    canvas.style.borderRadius = '10px'
   }
 }
 
