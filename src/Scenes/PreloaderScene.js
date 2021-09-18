@@ -1,7 +1,5 @@
 import Phaser from 'phaser';
 
-import blueButton1 from '../assets/ui/blue_button02.png';
-import blueButton2 from '../assets/ui/blue_button03.png';
 import archaicBtn from '../assets/ui/button.png';
 import phaserLogo from '../assets/logo.png';
 import box from '../assets/ui/grey_box.png';
@@ -79,8 +77,6 @@ class PreloaderScene extends Phaser.Scene {
 
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
-    this.load.image('blueButton1', blueButton1);
-    this.load.image('blueButton2', blueButton2);
     this.load.image('archaicBtn', archaicBtn);
     this.load.image('phaserLogo', phaserLogo);
 
