@@ -16,13 +16,11 @@ class CreditsScene extends Phaser.Scene {
 
     const github = document.createElement('a')
     github.setAttribute('href', 'https://github.com/Moreneecoder')
-
-    github.style.textDecoration = 'none'
-    github.style.color = 'white'
+    this.style(github, {textDecoration: 'none', color: 'white'})
 
     const icon = document.createElement('i')
     icon.classList.add('fa', 'fa-github')
-    icon.style.fontSize = '3em'
+    this.style(icon, {fontSize: '3em'})
 
     github.appendChild(icon)
 
@@ -46,8 +44,10 @@ class CreditsScene extends Phaser.Scene {
 
   }
 
-  style(element) {
-    element.
+  style(element, props) {
+    Object.entries(props).forEach(prop => {
+      element.style[prop[0]] = prop[1];
+    });
   }
 }
 
