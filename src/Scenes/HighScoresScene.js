@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import * as LeaderBoardAPI from '../API/ldboard';
 import Button from '../Objects/Button';
+import Background from '../Objects/Background';
 
 class HighScoresScene extends Phaser.Scene {
   constructor() {
@@ -8,6 +9,8 @@ class HighScoresScene extends Phaser.Scene {
   }
 
   create() {
+    this.background = new Background(this, "background", 0)
+    
     this.title = this.add.text(this.game.config.width * 0.4, 50, 'High Scores', { fontSize: 32 });
 
     this.getScores()

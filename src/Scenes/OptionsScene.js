@@ -1,12 +1,14 @@
 import Phaser from 'phaser';
 import Button from '../Objects/Button';
+import Background from '../Objects/Background';
 
 class OptionsScene extends Phaser.Scene {
   constructor() {
     super('Options');
   }
 
-  create() {
+  create() {    
+    this.background = new Background(this, "background", 0)
     this.model = this.sys.game.globals.model;
 
     this.text = this.add.text(300, 100, 'Options', { fontSize: 40 });

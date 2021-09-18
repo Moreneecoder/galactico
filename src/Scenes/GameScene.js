@@ -10,6 +10,7 @@ import explodeAudio2 from '../assets/explode1.wav';
 import Player from '../Objects/Player';
 import Enemy from '../Objects/Enemy';
 import Score from '../Objects/Score';
+import Background from '../Objects/Background';
 
 class GameScene extends Phaser.Scene {
   constructor() {
@@ -30,6 +31,8 @@ class GameScene extends Phaser.Scene {
   }
 
   create() {
+    this.background = new Background(this, "background", 0)
+    
     this.enableSpriteAnimation('playerObj', 'player', 20, -1);
     this.enableSpriteAnimation('enemyObj', 'enemy', 20, -1);
     this.enableSpriteAnimation('explosionObj', 'explosion', 20, 0);

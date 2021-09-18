@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import Button from '../Objects/Button';
 
 import logo from '../assets/zenva_logo.png';
+import Background from '../Objects/Background';
 
 class GameOverScene extends Phaser.Scene {
   constructor() {
@@ -13,6 +14,8 @@ class GameOverScene extends Phaser.Scene {
   }
 
   create() {
+    this.background = new Background(this, "background", 0)
+
     this.title = this.add.text(this.game.config.width * 0.5, 128, 'GAME OVER', {
       fontFamily: 'monospace',
       fontSize: 48,

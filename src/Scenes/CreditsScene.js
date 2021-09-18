@@ -1,13 +1,16 @@
 /* eslint-disable no-unused-expressions */
 import Phaser from 'phaser';
 import config from '../Config/config';
+import Background from '../Objects/Background';
 
 class CreditsScene extends Phaser.Scene {
   constructor() {
     super('Credits');
   }
 
-  create() {
+  create() {    
+    this.background = new Background(this, "background", 0)
+
     this.creditsText = this.add.text(0, 0, 'Credits', { fontSize: '32px', fill: '#fff' });
     this.madeByText = this.add.text(0, 0, 'Created By: Bello Morenikeji Fuad', { fontSize: '26px', fill: '#fff' });
 

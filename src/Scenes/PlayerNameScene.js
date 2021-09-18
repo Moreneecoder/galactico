@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import Background from '../Objects/Background';
 
 class PlayerNameScene extends Phaser.Scene {
   constructor() {
@@ -6,6 +7,8 @@ class PlayerNameScene extends Phaser.Scene {
   }
 
   create() {
+    this.background = new Background(this, "background", 0)
+
     this.text = this.add.text(this.game.config.width * 0.28, 100, 'ENTER YOUR NAME', { fontSize: 40 });
 
     const input = document.createElement('input');

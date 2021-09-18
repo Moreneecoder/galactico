@@ -1,12 +1,15 @@
 import Phaser from 'phaser';
 import Button from '../Objects/Button';
+import Background from '../Objects/Background';
 
 class StoryScene extends Phaser.Scene {
     constructor() {
       super('Story');
     }
 
-    create() {
+    create() {        
+        this.background = new Background(this, "background", 0)
+
         const story = `
         In the year 3078, the people of Khandor are
         continously invaded by the the brutal 
