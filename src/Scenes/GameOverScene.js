@@ -23,7 +23,8 @@ class GameOverScene extends Phaser.Scene {
 
     this.title.setOrigin(0.5);
 
-    this.menuButton = new Button(this, 400, 300, 'archaicBtn', 'archaicBtn', 'Menu', 'Title');
+    this.menuButton = new Button(this, 400, 300, 'archaicBtn', 'archaicBtn', 'Play Again', 'Game', 0.35);
+    this.menuButton = new Button(this, 400, 400, 'archaicBtn', 'archaicBtn', 'Menu', 'Title');    
   }
 }
 
