@@ -1,7 +1,7 @@
 class Model {
   constructor() {
     this.SoundOn = true;
-    this.MusicOn = false;
+    this.MusicOn = true;
     this.BgMusicPlaying = false;
   }
 
