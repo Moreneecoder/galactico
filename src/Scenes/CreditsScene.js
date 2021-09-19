@@ -4,6 +4,7 @@
 import Phaser from 'phaser';
 import config from '../Config/config';
 import Background from '../Objects/Background';
+import Button from '../Objects/Button';
 
 class CreditsScene extends Phaser.Scene {
   constructor() {
@@ -78,6 +79,8 @@ class CreditsScene extends Phaser.Scene {
 
     this.creditsText.setY(200);
     this.madeByText.setY(250);
+
+    this.menuButton = new Button(this, 400, 470, 'archaicBtn', 'archaicBtn', 'Menu', 'Title');
   }
 
   style = (element, props) => {
