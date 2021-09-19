@@ -15,7 +15,7 @@ class HighScoresScene extends Phaser.Scene {
 
     this.getScores()
       .then((response) => {
-        response.result.sort((a,b)=> (a.score < b.score ? 1 : -1))        
+        response.result.sort((a, b) => (a.score < b.score ? 1 : -1));
         this.print(response.result);
       });
 
