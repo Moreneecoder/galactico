@@ -8,7 +8,7 @@ class BootScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('logo', logo);    
+    this.load.image('logo', logo); 
 
     document.body.style.backgroundColor = '#4B3869';
     this.styleCanvas();
@@ -35,7 +35,15 @@ class BootScene extends Phaser.Scene {
       emoji,
     );
 
-    // this.scene.start('Preloader');
+    this.time.addEvent({
+      delay: 3000,
+      callback: () => {
+        this.scene.start('Preloader');
+      },
+      callbackScope: this,
+      loop: true
+    });
+    
   }
 
   styleCanvas = () => {
