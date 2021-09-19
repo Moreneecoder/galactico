@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 
-import logo from '../assets/zenva_logo.png';
+import logo from '../assets/mo-games.png';
 
 class BootScene extends Phaser.Scene {
   constructor() {
@@ -8,14 +8,34 @@ class BootScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('logo', logo);
+    this.load.image('logo', logo);    
 
     document.body.style.backgroundColor = '#4B3869';
     this.styleCanvas();
   }
 
   create() {
-    this.scene.start('Preloader');
+    const emoji = document.createElement('span');    
+    emoji.style.fontSize = '5em';    
+    emoji.innerHTML = '&#129492;&#127998';
+
+    const logoImg = this.add.image(450, 200, 'logo');
+    logoImg.setDisplaySize(400, 300)
+
+    this.miniText = this.add.text(
+      this.game.config.width * 0.45,
+      this.game.config.height / 2.3,
+      '- PRESENTS -',
+      { fontSize: 22 }
+  );
+
+    this.emojiDom = this.add.dom(
+      this.game.config.width * 0.27,
+      this.game.config.height / 3,
+      emoji,
+    );
+
+    // this.scene.start('Preloader');
   }
 
   styleCanvas = () => {
