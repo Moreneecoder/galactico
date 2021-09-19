@@ -8,15 +8,23 @@ The Ultra wars game is a shooter game that requires the player to kill as many e
 
 > Menu Scene
 > 
-![](https://user-images.githubusercontent.com/38987207/133655470-6b43d23d-a86c-42fa-b637-3a5296084cfe.png)
+![](https://user-images.githubusercontent.com/38987207/133936620-4003d6fe-cc72-408d-97a0-698c9a035340.png)
 
 > Game Scene
 > 
-![](https://user-images.githubusercontent.com/38987207/133655665-1fc00720-55f2-4070-a8e5-39f26facb7dd.png)
+![](https://user-images.githubusercontent.com/38987207/133936690-04d754a6-e1c2-4199-8fea-4dfd059615c6.png)
 
 > HighScore Scene
 > 
-![](https://user-images.githubusercontent.com/38987207/133655849-dbaf4524-caa5-4a64-b6c3-f9ab34847ca1.png)
+![](https://user-images.githubusercontent.com/38987207/133936651-d3e64897-d70d-45aa-88d2-d5fbeec033f2.png)
+
+> Credits Scene
+> 
+![](https://user-images.githubusercontent.com/38987207/133936971-0a326cee-6034-4459-9cf3-a52ad15fa528.png)
+
+> GameOver Scene
+> 
+![](https://user-images.githubusercontent.com/38987207/133936718-25a75bc6-dc41-4dc9-99a0-ebe34ed336a7.png)
 
 ## Built with
 
