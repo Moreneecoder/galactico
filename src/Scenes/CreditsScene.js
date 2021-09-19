@@ -38,6 +38,20 @@ class CreditsScene extends Phaser.Scene {
 
     this.linkedInDom = this.add.dom(this.game.config.width * 0.5, this.game.config.height / 1.7, linkedin);
 
+    const twitter = document.createElement('a')
+    twitter.setAttribute('href', 'https://www.twitter.com/in/mo_bello19/')
+    this.style(twitter, {textDecoration: 'none', color: 'white'})
+
+    const twitterIcon = document.createElement('i')
+    twitterIcon.classList.add('fa', 'fa-twitter')
+    this.style(twitterIcon, {fontSize: '3em'})
+
+    twitter.appendChild(twitterIcon)
+
+    this.twitterDom = this.add.dom(this.game.config.width * 0.8, this.game.config.height / 1.7, twitter);
+
+
+
     this.zone = this.add.zone(config.width / 2, config.height / 2, config.width, config.height);
 
     Phaser.Display.Align.In.Center(
