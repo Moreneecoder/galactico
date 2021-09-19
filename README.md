@@ -8,7 +8,7 @@ The Ultra wars game is a shooter game that requires the player to kill as many e
 In the year 3078, the people of Khandor are continuously invaded by the the brutal forces of Ashbane. Their lands were pillaged and their best men and women taken, never to be seen again.
 
 The ruling council have however, charged you with putting a stop to this madness. 
-The survival of the kingdom LIES IN YOUR HANDS!`;
+The survival of the kingdom LIES IN YOUR HANDS!
 
 ## Snapshots
 
