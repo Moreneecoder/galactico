@@ -1,6 +1,8 @@
 import Phaser from 'phaser';
 
 import logo from '../assets/mo-games.png';
+import PlayerImg from '../assets/hero.png';
+import UltraLogo from '../assets/ultralogo.png';
 
 class BootScene extends Phaser.Scene {
   constructor() {
@@ -8,7 +10,9 @@ class BootScene extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('logo', logo); 
+    this.load.image('logo', logo);
+    this.load.image('heroImg', PlayerImg);
+    this.load.image('ultraLogo', UltraLogo);
 
     document.body.style.backgroundColor = '#4B3869';
     this.styleCanvas();
