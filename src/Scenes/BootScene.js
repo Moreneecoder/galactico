@@ -1,6 +1,8 @@
 import Phaser from 'phaser';
 
-import logo from '../assets/zenva_logo.png';
+import logo from '../assets/mo-games.png';
+import PlayerImg from '../assets/hero.png';
+import UltraLogo from '../assets/ultralogo.png';
 
 class BootScene extends Phaser.Scene {
   constructor() {
@@ -9,20 +11,50 @@ class BootScene extends Phaser.Scene {
 
   preload() {
     this.load.image('logo', logo);
-    
-    document.body.style.backgroundColor = '#4B3869'
+    this.load.image('heroImg', PlayerImg);
+    this.load.image('ultraLogo', UltraLogo);
+
+    document.body.style.backgroundColor = '#4B3869';
     this.styleCanvas();
   }
 
   create() {
-    this.scene.start('Preloader');
+    const emoji = document.createElement('span');
+    emoji.style.fontSize = '5em';
+    emoji.innerHTML = '&#129492;&#127998';
+
+    const logoImg = this.add.image(450, 200, 'logo');
+    logoImg.setDisplaySize(400, 300);
+
+    this.miniText = this.add.text(
+      this.game.config.width * 0.45,
+      this.game.config.height / 2.3,
+      '- PRESENTS -',
+      { fontSize: 22 },
+    );
+
+    this.emojiDom = this.add.dom(
+      this.game.config.width * 0.27,
+      this.game.config.height / 3,
+      emoji,
+    );
+
+    this.time.addEvent({
+      delay: 3000,
+      callback: () => {
+        this.scene.start('Preloader');
+      },
+      callbackScope: this,
+      loop: true,
+    });
   }
 
-  styleCanvas() {
+  styleCanvas = () => {
     const canvas = document.querySelector('canvas');
-    canvas.style.marginLeft = '20%';
+    const screenMath = ((window.screen.width - this.game.config.width) / 2);
+    canvas.style.marginLeft = `${screenMath}px`;
     canvas.style.marginTop = '25px';
-    canvas.style.borderRadius = '10px'
+    canvas.style.borderRadius = '10px';
     canvas.style.boxShadow = '10px 20px 15px #664E88';
   }
 }

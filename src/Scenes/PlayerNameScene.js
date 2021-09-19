@@ -10,6 +10,12 @@ class PlayerNameScene extends Phaser.Scene {
     this.background = new Background(this, 'background', 0);
 
     this.text = this.add.text(this.game.config.width * 0.28, 100, 'ENTER YOUR NAME', { fontSize: 40 });
+    this.miniText = this.add.text(
+      this.game.config.width * 0.28,
+      140,
+      'And Press "ENTER" to submit',
+      { fontSize: 22 },
+    );
 
     const input = document.createElement('input');
     this.style(input);
