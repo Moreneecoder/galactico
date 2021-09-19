@@ -13,16 +13,16 @@ class PreloaderScene extends Phaser.Scene {
   }
 
   preload() {
-    
     const logoImg = this.add.image(450, 200, 'ultraLogo');
-    logoImg.setDisplaySize(400, 300)
+    logoImg.setDisplaySize(400, 300);
 
     const heroImg = this.add.image(
       this.game.config.width * 0.35,
       this.game.config.height / 3,
-      'heroImg');
+      'heroImg',
+    );
 
-    heroImg.setDisplaySize(100, 100)
+    heroImg.setDisplaySize(100, 100);
 
     const progressBar = this.add.graphics();
     const progressBox = this.add.graphics();

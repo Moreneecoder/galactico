@@ -19,19 +19,19 @@ class BootScene extends Phaser.Scene {
   }
 
   create() {
-    const emoji = document.createElement('span');    
-    emoji.style.fontSize = '5em';    
+    const emoji = document.createElement('span');
+    emoji.style.fontSize = '5em';
     emoji.innerHTML = '&#129492;&#127998';
 
     const logoImg = this.add.image(450, 200, 'logo');
-    logoImg.setDisplaySize(400, 300)
+    logoImg.setDisplaySize(400, 300);
 
     this.miniText = this.add.text(
       this.game.config.width * 0.45,
       this.game.config.height / 2.3,
       '- PRESENTS -',
-      { fontSize: 22 }
-  );
+      { fontSize: 22 },
+    );
 
     this.emojiDom = this.add.dom(
       this.game.config.width * 0.27,
@@ -45,14 +45,14 @@ class BootScene extends Phaser.Scene {
         this.scene.start('Preloader');
       },
       callbackScope: this,
-      loop: true
+      loop: true,
     });
-    
   }
 
   styleCanvas = () => {
     const canvas = document.querySelector('canvas');
-    canvas.style.marginLeft = '20%';
+    const screenMath = ((window.screen.width - this.game.config.width) / 2);
+    canvas.style.marginLeft = `${screenMath}px`;
     canvas.style.marginTop = '25px';
     canvas.style.borderRadius = '10px';
     canvas.style.boxShadow = '10px 20px 15px #664E88';
