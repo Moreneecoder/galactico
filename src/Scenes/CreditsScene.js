@@ -18,14 +18,25 @@ class CreditsScene extends Phaser.Scene {
     github.setAttribute('href', 'https://github.com/Moreneecoder')
     this.style(github, {textDecoration: 'none', color: 'white'})
 
-    const icon = document.createElement('i')
-    icon.classList.add('fa', 'fa-github')
-    this.style(icon, {fontSize: '3em'})
+    const githubIcon = document.createElement('i')
+    githubIcon.classList.add('fa', 'fa-github')
+    this.style(githubIcon, {fontSize: '3em'})
 
-    github.appendChild(icon)
+    github.appendChild(githubIcon)
 
     this.githubDom = this.add.dom(this.game.config.width * 0.2, this.game.config.height / 1.7, github);
-    // this.linkedInDom = this.add.dom(this.game.config.width * 0.5, this.game.config.height / 1.7, github);
+
+    const linkedin = document.createElement('a')
+    linkedin.setAttribute('href', 'https://www.linkedin.com/in/morenikeji-bello/')
+    this.style(linkedin, {textDecoration: 'none', color: 'white'})
+
+    const linkedIcon = document.createElement('i')
+    linkedIcon.classList.add('fa', 'fa-linkedin')
+    this.style(linkedIcon, {fontSize: '3em'})
+
+    linkedin.appendChild(linkedIcon)
+
+    this.linkedInDom = this.add.dom(this.game.config.width * 0.5, this.game.config.height / 1.7, linkedin);
 
     this.zone = this.add.zone(config.width / 2, config.height / 2, config.width, config.height);
 
