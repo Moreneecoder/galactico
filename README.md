@@ -4,6 +4,12 @@
 ## About The Game
 The Ultra wars game is a shooter game that requires the player to kill as many emeny battleships as possible. Also, the player will need to avoid collision with enemy ships and laser to avoid being killed. The more enemies you kill, the higher you rank on the leaderboard.
 
+### Game Story
+In the year 3078, the people of Khandor are continously invaded by the the brutal forces of Ashbane. Their lands were pillaged and their best men and women taken, never to be seen again.
+
+The ruling council have however, charged you, ${localStorage.getItem('ultraName').toUpperCase()} to put a stop to this madness. 
+The survival of the kingdom LIES IN YOUR HANDS!`;
+
 ## Snapshots
 
 > Menu Scene
@@ -42,6 +48,10 @@ The Ultra wars game is a shooter game that requires the player to kill as many e
 
 * After loading the game, the player is taken to the `Menu Scene`.
 * To play the game, click on the `Play` button.
+* You will be prompted to enter your name, so the game can track your score.
+* After typing in your name, press the `ENTER` button on your keyboard.
+* You will be taken to the main Game scene.
+
 * To see the options, like toggling the game sounds and music, click the `Options` button.
 * To see the game credits, click on the `Credits` button
 * To see the leaderboard, click on the `Scores` list.
