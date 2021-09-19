@@ -1,4 +1,6 @@
 /* eslint-disable no-unused-expressions */
+/* eslint-disable prefer-destructuring */
+
 import Phaser from 'phaser';
 import config from '../Config/config';
 import Background from '../Objects/Background';
@@ -14,43 +16,53 @@ class CreditsScene extends Phaser.Scene {
     this.creditsText = this.add.text(0, 0, 'CREDITS', { fontSize: '32px', fill: '#fff' });
     this.madeByText = this.add.text(0, 0, 'Created By: BELLO MORENIKEJI FUAD', { fontSize: '26px', fill: '#fff' });
 
-    const github = document.createElement('a')
-    github.setAttribute('href', 'https://github.com/Moreneecoder')
-    this.style(github, {textDecoration: 'none', color: 'white'})
+    const github = document.createElement('a');
+    github.setAttribute('href', 'https://github.com/Moreneecoder');
+    this.style(github, { textDecoration: 'none', color: 'white' });
 
-    const githubIcon = document.createElement('i')
-    githubIcon.classList.add('fa', 'fa-github')
-    this.style(githubIcon, {fontSize: '3em'})
+    const githubIcon = document.createElement('i');
+    githubIcon.classList.add('fa', 'fa-github');
+    this.style(githubIcon, { fontSize: '3em' });
 
-    github.appendChild(githubIcon)
+    github.appendChild(githubIcon);
 
-    this.githubDom = this.add.dom(this.game.config.width * 0.2, this.game.config.height / 1.7, github);
+    this.githubDom = this.add.dom(
+      this.game.config.width * 0.2,
+      this.game.config.height / 1.7,
+      github,
+    );
 
-    const linkedin = document.createElement('a')
-    linkedin.setAttribute('href', 'https://www.linkedin.com/in/morenikeji-bello/')
-    this.style(linkedin, {textDecoration: 'none', color: 'white'})
+    const linkedin = document.createElement('a');
+    linkedin.setAttribute('href', 'https://www.linkedin.com/in/morenikeji-bello/');
+    this.style(linkedin, { textDecoration: 'none', color: 'white' });
 
-    const linkedIcon = document.createElement('i')
-    linkedIcon.classList.add('fa', 'fa-linkedin')
-    this.style(linkedIcon, {fontSize: '3em'})
+    const linkedIcon = document.createElement('i');
+    linkedIcon.classList.add('fa', 'fa-linkedin');
+    this.style(linkedIcon, { fontSize: '3em' });
 
-    linkedin.appendChild(linkedIcon)
+    linkedin.appendChild(linkedIcon);
 
-    this.linkedInDom = this.add.dom(this.game.config.width * 0.5, this.game.config.height / 1.7, linkedin);
+    this.linkedInDom = this.add.dom(
+      this.game.config.width * 0.5,
+      this.game.config.height / 1.7,
+      linkedin,
+    );
 
-    const twitter = document.createElement('a')
-    twitter.setAttribute('href', 'https://www.twitter.com/in/mo_bello19/')
-    this.style(twitter, {textDecoration: 'none', color: 'white'})
+    const twitter = document.createElement('a');
+    twitter.setAttribute('href', 'https://www.twitter.com/mo_bello19/');
+    this.style(twitter, { textDecoration: 'none', color: 'white' });
 
-    const twitterIcon = document.createElement('i')
-    twitterIcon.classList.add('fa', 'fa-twitter')
-    this.style(twitterIcon, {fontSize: '3em'})
+    const twitterIcon = document.createElement('i');
+    twitterIcon.classList.add('fa', 'fa-twitter');
+    this.style(twitterIcon, { fontSize: '3em' });
 
-    twitter.appendChild(twitterIcon)
+    twitter.appendChild(twitterIcon);
 
-    this.twitterDom = this.add.dom(this.game.config.width * 0.8, this.game.config.height / 1.7, twitter);
-
-
+    this.twitterDom = this.add.dom(
+      this.game.config.width * 0.8,
+      this.game.config.height / 1.7,
+      twitter,
+    );
 
     this.zone = this.add.zone(config.width / 2, config.height / 2, config.width, config.height);
 
@@ -66,11 +78,10 @@ class CreditsScene extends Phaser.Scene {
 
     this.creditsText.setY(200);
     this.madeByText.setY(250);
-
   }
 
-  style(element, props) {
-    Object.entries(props).forEach(prop => {
+  style = (element, props) => {
+    Object.entries(props).forEach((prop) => {
       element.style[prop[0]] = prop[1];
     });
   }
