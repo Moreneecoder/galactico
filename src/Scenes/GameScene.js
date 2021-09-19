@@ -4,7 +4,7 @@ import EnemyImg from '../assets/enemy.png';
 import EnemyLaserImg from '../assets/enemyLaser.png';
 import PlayerLaserImg from '../assets/playerLaser.png';
 import ExplosionImg from '../assets/explosion.png';
-import playerLaserAudio from '../assets/playerLaser.wav';
+import playerLaserAudio from '../assets/gunshot.mp3';
 import explodeAudio1 from '../assets/explode0.wav';
 import explodeAudio2 from '../assets/explode1.wav';
 import Player from '../Objects/Player';
