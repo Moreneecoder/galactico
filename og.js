@@ -1,0 +1,1 @@
+import Will from './src/assets/favicon.png'
